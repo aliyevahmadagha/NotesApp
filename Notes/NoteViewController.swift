@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoteViewController: UIViewController {
+final class NoteViewController: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var noteLabel: UITextView!

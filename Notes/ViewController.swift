@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class ViewController: UIViewController {
     
     @IBOutlet var table: UITableView!
     @IBOutlet var label: UILabel!
@@ -26,7 +26,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         vc.title = "New Note"
-        vc.navigationItem.largeTitleDisplayMode
         vc.completion = { noteTitle, note in
             self.navigationController?.popToRootViewController(animated: true)
             self.models.append((title: noteTitle, note: note))
@@ -37,6 +36,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationController?.pushViewController(vc, animated: true)
         
     }
+    
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
@@ -58,14 +61,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return
         }
         
-        vc.navigationItem.largeTitleDisplayMode = .never
         vc.title = "Note"
         vc.noteTitle = model.title
         vc.note = model.note
         navigationController?.pushViewController(vc, animated: true)
     }
-
-
 }
-
-

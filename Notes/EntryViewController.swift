@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryViewController: UIViewController {
+final class EntryViewController: UIViewController {
     
     @IBOutlet var titleField: UITextField!
     @IBOutlet var noteField: UITextView!
